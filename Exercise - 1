@@ -1,0 +1,53 @@
+Main Task
+----------
+
+New directory "Git" created in the desktop.
+
+git init             #used to create an empty Git repository 
+
+touch README         #creates an empty README file
+
+git status           # shows the working status of repository
+#Only shows untracked files present in the working directory and to be committed files present in the staging area. 
+
+git add              # Add file contents to the index.And moves files from working directory to staging area.
+
+git commit -m "commit README"           #Record changes to the repository. this command used to move files from staging area to local repository.
+#-m indicates to give message for comitted file.
+
+mkdir src             # to create a new directory in the repository
+
+cd src                #change directory to src directory
+touch a.txt           # creating an empty file namely a.txt
+touch b.txt           # creating an empty file namely b.txt
+git status            #both created files will be in working directory
+
+cat > a.txt           # adds content to the file
+hello
+
+git diff              #shows changes between commits, commit and working tree
+
+git add a.txt
+git commit -m "commit a.txt"
+
+git status            #a.txt will be committed and b.txt will be at working directory
+
+git log               #Show commit logs
+
+git show              #Show various types of objects
+
+
+
+Stretch Task
+-------------
+
+git rm a.txt              #Remove files from the working tree and from the index
+git status                #outputs as deleted : a.txt
+
+git mv README README.txt       #used to rename a file or a directory
+
+git commit -m "Modified changes"
+
+git log
+
+
