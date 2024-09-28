@@ -1,0 +1,63 @@
+Main Task
+----------
+
+git status              # also tells on which branch you are
+
+git branch  b1          # used to create a branch 
+
+git checkout b1         #used to switch to the created branch named b1
+
+git log                 # shows commits history
+
+git checkout master      #to move back to master (i.e main)
+
+git checkout b1          #move back to created branch
+
+gitk --all               #gitk used to visualize the commit history
+
+#merge your created branch to the master
+git checkout master      
+git merge b1            #git merge command used to merge your branch into the master branch
+git log                 #show that only the new changes as previous are already merged
+#This merge commit reflects the point at which your branch was combined with the master branch.
+
+gitk --all              #shows Directed Acyclic Graph (DAG) of your repository and the things are forked
+git log
+
+
+Stretch Task
+-------------
+
+git checkout b1
+
+#make some commits
+nano a.txt
+git add a.txt
+git commit -m "First commit on branch"
+
+nano b.txt
+git add b.txt
+git commit -m "Second commit on branch"
+
+git checkout master        #return to master
+
+nano a.txt               #adding content (making modifications)
+
+git add a.txt
+git commit -m "Changes commit on master"
+
+git merge b1            #again merging branch b1 to master  --> results in a conflict 
+
+check for conflicts and resolve them. After resolving all conflicts , use git add command to add that file.
+
+git add a.txt
+
+git commit -m "Merge commit after resolving conflicts"
+
+gitk --all          #visualize that DAG
+
+git log
+
+
+
+
