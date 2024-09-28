@@ -1,5 +1,81 @@
-Create an account in GitHub and then create a new repository and set it as a public.
+# Create an account in GitHub and then create a new repository and set it as a public.
 
-After creating the repository, GitHub will display instructions to add the remote and push your local repository.
-git remote add origin https://github.com/<username>/<repository-name>.git    
+# After creating the repository, GitHub will display instructions to add the remote and push your local repository.
+
+git remote add origin https://github.com/harshini-narahari/Git_Tasks.git         #command for adding GitHub remote
+
+git push -u origin master                     #command for pushing the local repository to GitHub
+
+# Adding collaborators to repository can be done by the owner of the repository
+# go to settings > collaborators
+# add all the usernames of the members of the team to make commits
+
+# Cloning of the repository can be sone using following command
+git clone https://github.com/<username>/<repository-name>.git
+
+ls              #used to check the contents of the cloned repository
  
+echo "This is a new Change" > file.txt            #Making changes
+
+git add newfile.txt                               # Adding file to staging area
+git commit -m "Added newfile.txt"                 #commiting changes and moving to the repository
+
+git push                              # Moving from local to remote repository(github)
+
+git pull                          # Fetch changes from all members and integrate with another repository or a local branch
+git log                           # shows commit history
+
+#Each group member should check the git log to observe the SHA-1 hash. SHA-1 hash is identical across all copies of the repository for the same commit. This is crucial because it ensures that everyone is working with the same version of the code and that no commit has been altered.
+
+
+#If both members wanted to push their files, then one will get an error message because the updation of repository is being happening by other.
+echo "Member A's file" > fileA.txt
+git add fileA.txt
+git commit -m "Member A adds fileA.txt"
+
+echo "Member B's file" > fileB.txt
+git add fileB.txt
+git commit -m "Member B adds fileB.txt"
+
+git push    #One member (the "runner-up") will get an error message saying the push was rejected because the repository was updated by someone else first.
+
+#The runner-up should pull the changes by using pull command
+git pull
+
+#Git will merge chnages made by the first person and then the runner-up can push the chnages
+git push
+
+gitk --all            #used to visualize DAG of the commit history using gitk --all
+
+
+
+
+
+Stretch Task
+-------------
+
+#Two members edit the same line in the same file in their local repositories
+
+echo "Hello, this is Member A's change" > file.txt
+git add file.txt
+git commit -m "Member A's change"
+
+echo "Hello, this is Member B's change" > file.txt
+git add file.txt
+git commit -m "Member B's change"
+
+#if member-A pushes first, member-B will push next
+git push --> member-A
+git push --> member-B
+#Member-B will receive an error that the push made by member-B was rejected because the repository was updated.
+
+#so, member-B will no pull request and then resolve conflict and then again add the file.
+git pull
+
+#Can make change to the content of the file and then save the file.
+
+git add file.txt
+
+git commit -m "Resolved merge conflict between Member-A and Member-B"
+
+# Now merge has been created.
