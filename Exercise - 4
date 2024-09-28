@@ -1,0 +1,73 @@
+Main Task
+----------
+
+# commit message
+
+git init my-repo                                     # Initialize a new Git repository
+cd my-repo                                           # Change into the repository directory
+echo "Hello World" > file.txt                        # Create a new file and add some content
+git add file.txt                                     # adding the file to Staging area for commit
+git commit -m "Hello"  # Commit with a message
+
+git commit --amend -m "Hello evryone"        # --amend flag allows to modify the last commit, including its message.(used to fix the change)
+
+git log                       #shows commit history
+
+echo "This is an added content " >> file.txt          # Add extra content to the file (>> - used to append)
+git add file.txt                                      # adding the file to Staging area for commit
+git commit -m "Added content"                         # Commit the change 
+git commit --amend -m "Add extra text"                # Amend to fix the change in the content
+
+
+git checkout -b b1                            # Create and switch to a new branch
+echo "This is file1" >> file1.txt             # Add a new file
+git add file1.txt                             # Stage the file
+git commit -m "commit file1"                  # Commit the new file
+
+
+git checkout master                           # Switch back to the master branch
+echo "Another change" >> file.txt             # Modify the original file
+git add file.txt                              # Stage the changes
+git commit -m "Update file.txt"               # Commit the change
+
+
+git checkout my-branch                        # Switch back to b1
+
+
+git rebase master                             # Rebase my-branch onto master (This command re-applies the commits in my-branch on top of the latest commit from the master branch)
+
+
+echo "Final change to file1.txt" >> file1.txt        # Add another line
+git add file1.txt                                    # Stage the changes
+git commit -m "Final change"                         # Commit the change
+
+
+git checkout master                                  # Switch back to master
+git merge b1                                         # Merge my-branch into master
+
+
+
+Stretch Task 
+-------------
+
+# In your teammate's local repository
+echo "team commit" >> tfile.txt            # Create a file or modify an existing one
+git add tfile.txt                 # Stage the change
+git commit -m "Teammate's first commit"   # Commit the change
+git push origin master                    # Push to the central repository
+
+#our local repository
+echo "My  commit" >> file.txt        # Create or modify a file
+git add file.txt                       # Stage the change
+git commit -m "My first  commit"     # Commit the change
+
+git push origin master                # push to the central repository
+#This will prevent the push because local branch is behind the remote branch (due to your teammate's commit). we will get an error message
+
+git pull --rebase origin master        # Pull the latest changes and rebase
+#This command fetches the latest commits from the central repository and applies your local commits on top of them. This avoids creating a merge commit and keeps the commit history linear.
+
+git log                                # shows the commit history
+gitk --all                             # shows a visual representation of the commit history (if gitk is installed)
+
+
